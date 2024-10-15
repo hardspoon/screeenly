@@ -2,12 +2,13 @@
   "name": "screeenly",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npm run development",
+    "dev": "npm run development
     "development": "mix",
     "watch": "mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
-    "prod": "mix --production"     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "prod": "mix --production"   
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --omit=dev --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
       
   },
     "devDependencies": {
