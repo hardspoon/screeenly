@@ -2,13 +2,8 @@
 [project]
 name = "screeenly"
 
-# Use buildpacks to manage deployment
+# Define build steps to execute (during deployment)
 [build]
-builder = "heroku/buildpacks:20"
-buildpacks = ["heroku/php", "heroku/nodejs"]
-
-# Steps during the build process
-[build.steps]
 steps = [
   "composer install --no-dev --optimize-autoloader",
   "npm install",
@@ -17,7 +12,7 @@ steps = [
   "php artisan migrate --force"
 ]
 
-# Environment variables for the application
+# Define environment variables for the application
 [env]
 APP_ENV = "production"
 APP_DEBUG = "false"
