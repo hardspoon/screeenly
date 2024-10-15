@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-const glob = require('glob-all');
+const glob = require('glob-all');  // 'glob-all' is already included
 require('laravel-mix-purgecss');
 
 /*
@@ -16,18 +16,16 @@ require('laravel-mix-purgecss');
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
    .purgeCss({
-        folders: ['resources', 'modules'],
+        folders: ['resources', 'modules'],  // Folders to run PurgeCSS on
 
         whitelistPatterns: [
             /Layer_1/,
-            /st1/
+            /st1/  // Safe-list patterns for PurgeCSS
         ],
     })
    .options({
-        processCssUrls: false
+        processCssUrls: false  // Preventing URL processing for imported CSS
     })
    .version();
 
-
-   let mix = require('laravel-mix');
-require('laravel-mix-purgecss');  
+// Additional configuration here...
