@@ -1,16 +1,24 @@
+@use "sass:color";
 
-// Body
+// Override Bootstrap's variables here
+$primary: #FF5722;
 $body-bg: #f5f8fa;
 
-// Borders
-$laravel-border-color: darken($body-bg, 10%);
+// Import Bootstrap's functions and variables
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+// Your custom variables
+$laravel-border-color: color.scale($body-bg, $lightness: -10%);
 $list-group-border: $laravel-border-color;
 $navbar-default-border: $laravel-border-color;
 $panel-default-border: $laravel-border-color;
 $panel-inner-border: $laravel-border-color;
+$input-border: color.scale($body-color, $lightness: 40%);
+$input-border-focus: color.scale($primary, $lightness: 25%);
+$input-color-placeholder: color.scale($body-color, $lightness: 30%);
 
 // Brands
-$brand-primary: #FF5722;
 $brand-info: #8eb4cb;
 $brand-success: #2ab27b;
 $brand-warning: #cbb956;
@@ -28,14 +36,9 @@ $navbar-default-bg: #fff;
 // Buttons
 $btn-default-color: $text-color;
 
-// Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
-
 // Panels
 $panel-default-heading-bg: #fff;
 
 // Container Sizes
-$grid-gutter-width:         30px !default;
-$container-large-desktop:      (900px + $grid-gutter-width) !default;
+$grid-gutter-width: 30px;
+$container-large-desktop: 900px + $grid-gutter-width;

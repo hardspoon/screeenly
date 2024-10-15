@@ -14,16 +14,23 @@ require('laravel-mix-purgecss');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
+   .sass('resources/sass/app.scss', 'public/css', {
+       implementation: require('sass')
+   })
    .purgeCss({
+        enabled: mix.inProduction(),
         folders: ['resources', 'modules'],
-        whitelistPatterns: [
-            /Layer_1/,
-            /st1/ 
-        ],
+        safelist: {
+            standard: [/Layer_1/, /st1/],
+            deep: [/dropdown/, /modal/],
+        },
     })
    .options({
         processCssUrls: false 
     })
-   .version();
-
+   .version()
+   .webpackConfig({
+     resolve: {
+       modules: ['node_modules'],
+     }
+   });

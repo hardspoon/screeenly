@@ -1,13 +1,13 @@
-
 // Fonts
 
 // Variables
 @import "variables";
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
 
-$blue: #3F51B5 !default;
-$black: #212121 !default;
+$blue: #3F51B5;
+$black: #212121;
 
 body {
     padding-top: 51px;
@@ -27,12 +27,11 @@ body {
     background-color: $blue;
     color: #fff;
     text-align: center;
-
     padding: 2em;
 }
 
 .u-background--primary {
-    background-color: $brand-primary;
+    background-color: $primary;
 }
 
 .u-white {
@@ -40,34 +39,27 @@ body {
 }
 
 .c-hero {
-    padding-top: 4em;
-    padding-bottom: 4em;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: 4em 2em;
 }
 
 .c-feature-set {
-    padding-top: 4em;
-    padding-bottom: 4em;
-    padding-left: 2em;
-    padding-right: 2em;
-
+    padding: 4em 2em;
 }
 
 .u-fs--ultra {
     font-size: 2em;
 
-    @media (min-width: $screen-sm-min) {
-    // width: $container-sm;
+    @include media-breakpoint-up(sm) {
+        // width: 100%;
     }
-    @media (min-width: $screen-md-min) {
+    @include media-breakpoint-up(md) {
         font-size: 3em;
     }
-    @media (min-width: $screen-lg-min) {
+    @include media-breakpoint-up(lg) {
         font-size: 4em;
     }
 }
 
 .btn-black {
-    @include button-variant(#fff, $black, $black);
+    @include button-variant($black, $black);
 }

@@ -4,8 +4,11 @@
  * code may be modified to fit the specific needs of your application.
  */
 
-window.$ = window.jQuery = require('jquery');
-require('bootstrap-sass');
+import $ from 'jquery';
+window.$ = window.jQuery = $;
 
-var Turbolinks = require("turbolinks");
+import * as bootstrap from 'bootstrap';
+window.bootstrap = bootstrap;
+
+import Turbolinks from 'turbolinks';
 Turbolinks.start();
