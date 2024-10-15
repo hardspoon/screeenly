@@ -2,26 +2,27 @@
 [project]
 name = "screeenly"
 
-# Configure buildpacks to use PHP and Node.js
+# Use buildpacks to manage deployment
 [build]
 builder = "heroku/buildpacks:20"
 buildpacks = ["heroku/php", "heroku/nodejs"]
 
-# Commands to be executed during the build process
+# Steps during the build process
 [build.steps]
-  - command = "composer install --no-dev --optimize-autoloader"
-  - command = "npm install"
-  - command = "npm run prod"
-  - command = "php artisan key:generate"
-  - command = "php artisan migrate --force"
+steps = [
+  "composer install --no-dev --optimize-autoloader",
+  "npm install",
+  "npm run prod",
+  "php artisan key:generate",
+  "php artisan migrate --force"
+]
 
-# Environment variables for the application. 
-# The database credentials will be injected by Railway's MySQL plugin.
+# Environment variables for the application
 [env]
 APP_ENV = "production"
 APP_DEBUG = "false"
 LOG_LEVEL = "debug"
 
-# Application start command using Apache to serve the app from the public directory
+# Start the application using Apache and PHP-FPM
 [start]
 command = "vendor/bin/heroku-php-apache2 public/"
