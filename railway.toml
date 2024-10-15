@@ -9,7 +9,7 @@ steps = [
   "npm install",
   "npm run prod",
   "php artisan key:generate",
-  "php artisan migrate --force"
+  "php artisan migrate --force",
   "rm -f /nix/store/*yarn/LICENSE"
 ]
 
