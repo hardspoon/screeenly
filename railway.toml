@@ -1,19 +1,12 @@
-# Project metadata
-[project]
-name = "screeenly"
-
-# Define build steps during deployment
 [build]
 steps = [
   "composer install --no-dev --optimize-autoloader",
   "npm install",
   "npm run prod",
   "php artisan key:generate",
-  "php artisan migrate --force",
-  "find /nix/store -name LICENSE -exec rm -f {} +"
+  "php artisan migrate --force"
 ]
 
-# Define environment variables for the application
 [env]
 APP_ENV = "production"
 APP_DEBUG = "false"
