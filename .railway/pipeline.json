@@ -1,0 +1,8 @@
+{
+  "prebuild": {
+    "commands": ["php artisan migrate --force"]
+  },
+  "postbuild": {
+    "commands": ["npm install", "npm run prod"]
+  }
+}
