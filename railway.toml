@@ -2,7 +2,7 @@
 [project]
 name = "screeenly"
 
-# Define build steps to execute (during deployment)
+# Define build steps during deployment
 [build]
 steps = [
   "composer install --no-dev --optimize-autoloader",
@@ -10,7 +10,7 @@ steps = [
   "npm run prod",
   "php artisan key:generate",
   "php artisan migrate --force",
-  "rm -f /nix/store/*yarn/LICENSE"
+  "find /nix/store -name LICENSE -exec rm -f {} +"
 ]
 
 # Define environment variables for the application
@@ -18,7 +18,3 @@ steps = [
 APP_ENV = "production"
 APP_DEBUG = "false"
 LOG_LEVEL = "debug"
-
-# Start the application using Apache and PHP-FPM
-[start]
-command = "vendor/bin/heroku-php-apache2 public/"
