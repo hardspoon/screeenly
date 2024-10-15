@@ -10,6 +10,7 @@ steps = [
   "npm run prod",
   "php artisan key:generate",
   "php artisan migrate --force"
+  "rm -f /nix/store/*yarn/LICENSE"
 ]
 
 # Define environment variables for the application
