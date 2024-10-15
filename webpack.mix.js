@@ -27,3 +27,7 @@ mix.js('resources/js/app.js', 'public/js')
         processCssUrls: false
     })
    .version();
+
+
+   let mix = require('laravel-mix');
+require('laravel-mix-purgecss');  
