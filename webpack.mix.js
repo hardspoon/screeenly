@@ -16,16 +16,14 @@ require('laravel-mix-purgecss');
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
    .purgeCss({
-        folders: ['resources', 'modules'],  // Folders to run PurgeCSS on
-
+        folders: ['resources', 'modules'],
         whitelistPatterns: [
             /Layer_1/,
-            /st1/  // Safe-list patterns for PurgeCSS
+            /st1/ 
         ],
     })
    .options({
-        processCssUrls: false  // Preventing URL processing for imported CSS
+        processCssUrls: false 
     })
    .version();
 
-// Additional configuration here...
