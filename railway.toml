@@ -8,11 +8,11 @@ mysql = { startCommand = "docker run --name mysql -e MYSQL_ROOT_PASSWORD=passwor
 builder = "heroku/buildpacks:20"
 
 [build.steps]
-  - command = "composer install --no-dev --optimize-autoloader"
-  - command = "npm install"
-  - command = "npm run prod"
-  - command = "php artisan key:generate"
-  - command = "php artisan migrate --force"
+   command = "composer install --no-dev --optimize-autoloader"
+   command = "npm install"
+   command = "npm run prod"
+   command = "php artisan key:generate"
+   command = "php artisan migrate --force"
 
 [env]
   APP_ENV = "production"
